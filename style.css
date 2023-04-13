@@ -5,9 +5,9 @@
 	--text-grey: #adbdcc;
 	--body-font: "Karla", sans-serif;
 	--heading-font: "DM Serif Display", serif;
-	--h1-size: 55px;
-	--h1-height: 3rem;
-	--h2-size: 45px;
+	--h1-size: 70px;
+	--h1-height: 4rem;
+	--h2-size: 60px;
 	--h2-height: 0.85rem;
 	--h3-size: 20px;
 	--h4-size: 32px;
@@ -26,7 +26,8 @@
 	--spacing-md: 16px;
 	--spacing-lg: 32px;
 	--spacing-xl: 64px;
-	--standard-width: 1144px;
+	--standard-width: 1440px;
+	--section-width: 1144px;
 
 	/*Primary*/
 	--dark-violet: hsl(256, 26%, 20%);
@@ -42,7 +43,7 @@
 /* Layout Styles  */
 .section-container {
 	width: 100%;
-	max-width: var(--standard-width);
+	max-width: var(--section-width);
 }
 
 .two-column {
@@ -55,7 +56,7 @@
 }
 
 .two-column > .col-left {
-	width: 50%;
+	width: 55%;
 	box-sizing: border-box;
 	padding: 0 var(--spacing-md) 0 0;
 	display: flex;
@@ -65,7 +66,7 @@
 }
 
 .two-column > .col-right {
-	width: 50%;
+	width: 45%;
 	box-sizing: border-box;
 	padding: 0 0 0 var(--spacing-md);
 	display: flex;
@@ -81,6 +82,7 @@
 	align-items: flex-start;
 	padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) 0;
 }
+
 .card .icon {
 	height: 50px;
 	margin: 0 0 var(--spacing-sm) 0;
@@ -96,11 +98,11 @@
 
 h1 {
 	font-family: var(--heading-font);
-	font-weight: 600;
+	font-weight: 400;
 	font-size: var(--h1-size);
-	margin: 0;
+	margin: var(--spacing-md) 0;
 	width: 100%;
-	letter-spacing: -1px;
+	letter-spacing: 2px;
 	line-height: var(--h1-height);
 }
 
@@ -135,13 +137,33 @@ body {
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	overflow: hidden;
-	margin: 0;
+	/* overflow: hidden; */
+	margin: 0 auto;
+	max-width: var(--standard-width);
 }
 
 main {
-	background-color: #fff;
 	width: 100%;
+}
+
+/* BUTTON STYLES */
+.primary-button {
+	font-family: var(--body-font);
+	font-size: var(--button-size);
+	letter-spacing: 1.25px;
+	font-weight: bold;
+	border: 1px solid var(--white);
+	text-transform: uppercase;
+	background-color: var(--primary-accent);
+	color: var(--white);
+	padding: var(--spacing-sm) var(--spacing-md);
+	transition: all 0.15s ease;
+}
+
+.primary-button:hover {
+	background-color: var(--white);
+	color: var(--dark-violet);
+	cursor: pointer;
 }
 
 /* NAVBAR */
@@ -152,9 +174,9 @@ main {
 	align-items: center;
 	width: 100%;
 	max-width: var(--standard-width);
-	padding: var(--spacing-md);
-	box-sizing: border-box;
-}
+	padding: var(--spacing-lg) calc(var(--spacing-xl) * 2.25);
+-}
+
 .menu {
 	display: flex;
 	list-style: none;
@@ -173,31 +195,62 @@ main {
 .menu a:hover {
 	text-decoration: underline;
 }
+
 .navbar-button {
 	background: rgba(250, 250, 250, 0.25);
+	border: 1px solid var(--very-dark-violet);
+	margin: 0 0 0 var(--spacing-md);
+	color: var(--text-dark);
 }
 
 .navbar-button:hover {
-	background: rgba(250, 250, 250, 0.5);
+	background: var(--dark-violet);
+	color: var(--white);
 }
 
 /* HERO STYLES */
-.hero {
+.hero-section {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	position: relative;
+	color: var(--white);
+	padding: var(--spacing-xl) 0;
 }
 
-.hero p {
-	max-width: 480px;
+.hero-section::before {
+	content: "";
+	width: 100%;
+	height: 600px;
+	background-color: var(--dark-violet);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 
-.hero .hero-people-container {
+.hero-section .desktop-top-line {
+	width: 180px;
+	margin: var(--spacing-lg) 0 var(--spacing-lg) 0;
+}
+
+.hero-section p {
+	max-width: 600px;
+	margin: 0 0 var(--spacing-lg) 0;
+}
+
+.hero-section .hero-btn {
+	color: var(--white);
+	background-color: ;
+}
+
+.hero-section .hero-people-container {
 	/* height: 564px; */
 	align-items: flex-end;
+	margin: var(--spacing-lg) 0 0 0;
 }
 
-.hero-people {
+.hero-section .hero-people {
 	height: 628px;
 }
 
@@ -206,7 +259,29 @@ main {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: calc(var(--spacing-xl) * 3) 0;
+	padding: var(--spacing-xl) 0;
+	background-color: var(--white);
+	position: relative;
+}
+
+.we-different-section::before {
+	content: "";
+	width: 100%;
+	height: 1000px;
+	background-color: var(--white);
+	position: absolute;
+	top: -200px;
+	left: 0;
+	z-index: -1;
+}
+
+.we-different-section h2 {
+	margin: 0 0 var(--spacing-xl) 0;
+}
+
+.we-different-section .desktop-line-two {
+	width: 145px;
+	margin: 0 0 var(--spacing-lg) 0;
 }
 
 .we-different-section .card-container {
@@ -221,16 +296,95 @@ main {
 	box-sizing: border-box;
 }
 
+.we-different-section .card-container .card .why-icon {
+	margin: 0 0 var(--spacing-lg) 0;
+}
+
 .we-different-section .secondary-text {
 	color: var(--text-dark);
 }
-.desktop-line-two {
-	width: 80px;
-}
+
 /* ABOUT SECTION */
 .about-section {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	padding: var(--spacing-xl) 0;
+	background-color: var(--white);
+}
+.about {
+	background-color: var(--dark-violet);
+	color: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--spacing-xl);
+}
+
+/* FOOTER SECTION */
+.footer-section {
+    background-color: var(--very-light-grey);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	color: var(--white);
+	padding: var(--spacing-xl) 0;
+}
+
+.desktop-line-three {
+	margin-bottom: 20px;
+}
+
+.footer-container {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding-top: 40px;
+	height: 300px;
+}
+
+.footer-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer-nav-items {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style-type: none;
+	text-decoration: none;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+.social i {
+	font-size: 15px;
+	color: var(--dark-greyish-violet);
+}
+
+.footer-sub {
+	margin-bottom: 15px;
+	color: var(--very-dark-violet);
+	list-style-type: none;
+	text-decoration: none;
+}
+
+.footer-bottom {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.footer-bottom {
+	width: 85%;
+}
+
+.footer-bottom li {
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 10px;
+	text-transform: uppercase;
+	line-height: 2;
+	color: var(--very-dark-violet);
 }
